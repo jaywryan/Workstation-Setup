@@ -24,12 +24,16 @@ end
 
 powershell_script 'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force' do
 end
+powershell_script 'Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart' do
+end
+
 
 modules = %w[ PSReadline ]
 modules.each do |mod|
   powershell_script "Install-Module #{mod} -Force" do
   end
 end
+
 
 directory 'C:\Work\Chef' do
   recursive true
