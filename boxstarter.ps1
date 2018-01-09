@@ -29,8 +29,8 @@ Disable-GameBarTips
 Disable-WindowsOptionalFeature -FeatureName SMB1Protocol
 
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
-Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock
-Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -AlwaysShowIconsOn
+Set-TaskbarOptions -Size Small -Dock Bottom -Combine Always -Lock
+Set-TaskbarOptions -Size Small -Dock Bottom -Combine Always -AlwaysShowIconsOff
 #endregion
 
 #region --- Windows Subsystems/Features ---
