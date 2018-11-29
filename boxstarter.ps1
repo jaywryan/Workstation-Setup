@@ -4,8 +4,13 @@
 #
 # Mostly stolen and borrowed from jessfraz
 # https://gist.github.com/jessfraz/7c319b046daa101a4aaef937a20ff41f
+
+### Ensure MyApps Plus is installed and running before starting ###
+# http://10.228.116.12/latest/MyApps_Anywhere_Install.exe
+
 # Install boxstarter:
-# 	. { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+$env:chocolateyUseWindowsCompression = 'true'
+. { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
 #
 # You might need to set: Set-ExecutionPolicy RemoteSigned
 #
@@ -26,47 +31,69 @@ choco install inconsolata -y
 #region --- Windows Settings ---
 Disable-BingSearch
 Disable-GameBarTips
-Disable-WindowsOptionalFeature -FeatureName SMB1Protocol
+#Disable-WindowsOptionalFeature -FeatureName SMB1Protocol
 
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableExpandToOpenFolder -
 Set-TaskbarOptions -Size Small -Dock Bottom -Combine Always -Lock
 Set-TaskbarOptions -Size Small -Dock Bottom -Combine Always -AlwaysShowIconsOff
+Set-TimeZone -Name 'Eastern Standard Time'
 #endregion
 
 #region --- Windows Subsystems/Features ---
 choco install Microsoft-Hyper-V-All -source windowsFeatures
 choco install Microsoft-Windows-Subsystem-Linux -source windowsfeatures
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Downloads/Ubuntu.appx -UseBasicParsing
+Add-AppxPackage -Path ~/Downloads/Ubuntu.appx
 #endregion
 
 #region --- Tools ---
 choco install git -params '"/GitAndUnixToolsOnPath /WindowsTerminal"' -y
-choco install sysinternals -y
 #endregion
 
 #region --- Apps ---
-$chocoApps = "googlechrome",
+$chocoApps = "7zip",
+    "sysinternals",
+    "boxsync",
+    "googlechrome",
     "Git-Credential-Manager-for-Windows",
     "putty",
     "visualstudiocode",
     "mremoteNG",
-    "7zip",
     "winmerge",
     "autohotkey",
     "conemu",
-    "virtualbox",
-    "vagrant",
+    "cmder",
     "python2",
     "python",
-    "docker-for-windows",
-    "chrome",
     "firefox",
     "WindowsAzurePowershell",
     "dbeaver",
-    "sysinternals"
+    "postman",
+    "slack",
+    "microsoft-teams.install",
+    "MobaXTerm",
+    "openshift-cli"
 #Generate Packages.config
 
     choco install $chocoApps -y
+    choco install docker-for-windows --pre -y
 #endregion
+
+#region --- Install PowerShell Modules
+Install-Module -Name Carbon,posh-git,posh-docker,oh-my-posh,Get-ChildItemColor -Scope AllUsers -Force -AllowClobber
+# Install Profile Fonts
+Push-Location
+if (Test-Path "$HOME\scripts\3rdPartyRepos\fonts"){
+    cd "$HOME\scripts\3rdPartyRepos\fonts"
+    git pull
+} else {
+    cd "$HOME\scripts\3rdPartyRepos"
+    git clone https://github.com/powerline/fonts
+}
+.\Install.ps1
+Pop-Location
+
+
 
 #region --- Remove Apps ---
 # 3D Builder
@@ -238,10 +265,10 @@ Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\P
 # Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power' -Name AwayModeEnabled -Type DWord -Value 0
 
 # Use the Windows 7-8.1 Style Volume Mixer
-If (-Not (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC")) {
-	New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name MTCUVC | Out-Null
-}
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC" -Name EnableMtcUvc -Type DWord -Value 0
+#If (-Not (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC")) {
+#	New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name MTCUVC | Out-Null
+#}
+#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC" -Name EnableMtcUvc -Type DWord -Value 0
 # To Restore (Windows 10 Style Volume Control):
 # Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC" -Name EnableMtcUvc -Type DWord -Value 1
 
@@ -269,3 +296,5 @@ Enable-UAC
 # 	Rename-Computer -NewName $computername
 # }
 #endregion
+
+Restart-Computer
