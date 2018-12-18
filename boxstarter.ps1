@@ -70,7 +70,8 @@ $chocoApps = "7zip",
     "slack",
     "microsoft-teams.install",
     "MobaXTerm",
-    "openshift-cli"
+    "openshift-cli",
+    "jq"
 #Generate Packages.config
 
     choco install $chocoApps -y
