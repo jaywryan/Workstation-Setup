@@ -71,11 +71,12 @@ $chocoApps = "7zip",
     "microsoft-teams.install",
     "MobaXTerm",
     "openshift-cli",
-    "jq"
+    "jq",
+    "vault"
 #Generate Packages.config
 
     choco install $chocoApps -y
-    choco install docker-for-windows --pre -y
+    choco install docker-for-windows --version 18.06.0.19101-edge --pre -y
 #endregion
 
 #region --- Install PowerShell Modules
