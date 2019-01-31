@@ -52,6 +52,7 @@ choco install git -params '"/GitAndUnixToolsOnPath /WindowsTerminal"' -y
 
 #region --- Apps ---
 $chocoApps = "7zip",
+    "powershell-core"
     "sysinternals",
     "boxsync",
     "Git-Credential-Manager-for-Windows",
