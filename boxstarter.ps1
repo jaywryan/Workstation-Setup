@@ -10,7 +10,7 @@
 
 # Install boxstarter:
 $env:chocolateyUseWindowsCompression = 'true'
-. { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+. { Invoke-WebRequest -useb http://boxstarter.org/bootstrapper.ps1 } | Invoke-Expression; get-boxstarter -Force
 #
 # You might need to set: Set-ExecutionPolicy RemoteSigned
 #
@@ -77,7 +77,9 @@ $chocoApps = "7zip",
 #Generate Packages.config
 
     choco install $chocoApps -y
+    choco install RSAT -params '"/AD"' -y
     choco install docker-for-windows --version 18.06.0.19101-edge --pre -y
+    choco pin add -n='docker-for-windows' --version 18.06.0.19101-edge
 #endregion
 
 #region --- Install PowerShell Modules
@@ -85,10 +87,10 @@ Install-Module -Name Carbon,posh-git,posh-docker,oh-my-posh,Get-ChildItemColor -
 # Install Profile Fonts
 Push-Location
 if (Test-Path "$HOME\scripts\3rdPartyRepos\fonts"){
-    cd "$HOME\scripts\3rdPartyRepos\fonts"
+    Set-Locationt-Location "$HOME\scripts\3rdPartyRepos\fonts"
     git pull
 } else {
-    cd "$HOME\scripts\3rdPartyRepos"
+    Set-Location "$HOME\scripts\3rdPartyRepos"
     git clone https://github.com/powerline/fonts
 }
 .\Install.ps1
