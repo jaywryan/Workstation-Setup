@@ -40,10 +40,14 @@ Set-TimeZone -Name 'Eastern Standard Time'
 #endregion
 
 #region --- Windows Subsystems/Features ---
+Set-itemproperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU -Name UseWUServer -Value 0
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 choco install Microsoft-Hyper-V-All -source windowsFeatures
 choco install Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Downloads/Ubuntu.appx -UseBasicParsing
 Add-AppxPackage -Path ~/Downloads/Ubuntu.appx
+Set-itemproperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU -Name UseWUServer -Value 1
+
 #endregion
 
 #region --- Tools ---
