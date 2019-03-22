@@ -23,3 +23,12 @@ sudo apt update
 sudo apt --yes install docker-ce
 
 sudo usermod --append --groups docker $USER
+
+# Fix Terminal Colors
+echo "export LS_COLORS='ow=01;36;40'" >> ~/.bashrc
+
+# fix issue with Permissions set in wsl not working
+cat <<EOT >> /etc/wsl.conf
+[automount]
+options = "metadata"
+EOT
