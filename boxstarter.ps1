@@ -77,7 +77,8 @@ $chocoApps = "7zip",
     "MobaXTerm",
     "openshift-cli",
     "jq",
-    "vault"
+    "vault",
+    "screentogif"
 #Generate Packages.config
 
     choco install $chocoApps -y
