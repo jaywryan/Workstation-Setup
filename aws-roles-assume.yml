@@ -1,0 +1,52 @@
+output_file: "~/.aws/credentials"
+flows:
+    - name: "normal-no-mfa"
+      saml_config:
+          username:
+              source: "config"
+              value: "212606213"
+          password:
+              source: "prompt"
+          url:
+              source: "config"
+              value: "https://ssologin.ssogen2.corporate.ge.com/SSOLogin/verify.fcc"
+          target:
+              source: "config"
+              value: "https://fssfed.ge.com/fss/idp/startSSO.ping?PartnerSpId=urn:amazon:webservices"
+      primary_assumptions:
+            all_roles: false
+            mappings:
+              - role_arn: arn:aws:iam::161044035992:role/bu-geix-billing-read
+                profile_name: geix-billing-read
+    - name: "mfa-saml"
+      type: "saml"
+      region: "us-east-1"
+      do_not_propagate_region: false
+      saml_config:
+          allow_mapping_duration_override: true
+          username:
+              source: "config"
+              value: "212606213"
+          password:
+              source: "prompt"
+          url:
+              source: "config"
+              value: "https://ssologin.ssogen2.corporate.ge.com/SSOLogin/verify.fcc"
+          target:
+              source: "config"
+              value: "https://fssfed.ge.com/fss/idp/startSSO.ping?PartnerSpId=urn:amazon:webservices:mfa-extended"
+      primary_assumptions:
+          all_roles: false
+          mappings:
+              - role_arn: arn:aws:iam::161044035992:role/bu-admin
+                profile_name: geix-admin
+              - role_arn: arn:aws:iam::161044035992:role/bu-iam-admin
+                profile_name: geix-iam-admin
+              - role_arn: arn:aws:iam::332133725430:role/bu-iam-admin
+                profile_name: cs-iad-1-iam-admin
+              - role_arn: arn:aws:iam::332133725430:role/bu-engineering
+                profile_name: cs-iad-1-engineering
+              - role_arn: arn:aws:iam::332133725430:role/bu-readonly
+                profile_name: cs-iad-1-readonly
+              - role_arn: arn:aws:iam::332133725430:role/bu-secrets-manager
+                profile_name: cs-iad-1-secrets-manager
