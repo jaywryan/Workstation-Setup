@@ -1,0 +1,48 @@
+#!/bin/bash
+# Bash wrappers for docker run commands
+
+docker-pull-all(){
+    docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>" | sort | uniq | xargs -L1 docker pull
+}
+docker-delete-stopped(){
+	local name=$1
+	local state
+	state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
+
+	if [[ "$state" == "false" ]]; then
+		docker rm "$name"
+	fi
+}
+# vault(){
+#     docker run -it --rm \
+#         -v $(PWD):/data \
+#         -e HTTP_PROXY \
+#         -e HTTPS_PROXY \
+#         -e NO_PROXY \
+#         -e VAULT_ADDR \
+#         -e VAULT_TOKEN \
+#         -e VAULT_SKIP_VERIFY \
+#         vault vault
+# }
+ansible-galaxy(){
+    docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-galaxy
+}
+ansible-playbook(){
+    docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-playbook
+}
+ansible(){
+    docker run -it --rm -v $(PWD):/data ansible-test ansible
+}
+openstack-sh(){
+    docker run -it --rm \
+    -v $(PWD):/data \
+    -e http_proxy \
+    -e https_proxy \
+    -e no_proxy="*.geix.cloud.ge.com" \
+    -e NO_PROXY="*.geix.cloud.ge.com" \
+    -e HTTP_PROXY \
+    -e HTTPS_PROXY \
+    jaywryan/openstack-client
+openshift-auth(){
+    docker run -it --rm openshift-auth:latest
+}

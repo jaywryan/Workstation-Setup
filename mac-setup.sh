@@ -1,10 +1,11 @@
-brew cask install iterm2 visual-studio-code git spectacle slack docker powershell java
+
+xargs brew cask install < brew-cask.txt
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
-brew install tmux git git-credential-manager pip awscli bash-completion htop openssl
+xargs brew install < brew.txt
 
 brew install python3
-pip3 install powerline-status
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+# pip3 install powerline-status
+# Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 git config --global user.email "jay.ryan@ge.com"
 git config --global user.name "Jay Ryan"

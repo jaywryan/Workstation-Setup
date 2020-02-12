@@ -1,0 +1,8 @@
+docker
+iterm2
+java
+minishift
+powershell
+slack
+spectacle
+visual-studio-code
