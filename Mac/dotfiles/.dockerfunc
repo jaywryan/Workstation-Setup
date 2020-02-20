@@ -43,6 +43,7 @@ openstack-sh(){
     -e HTTP_PROXY \
     -e HTTPS_PROXY \
     jaywryan/openstack-client
+}
 openshift-auth(){
     docker run -it --rm openshift-auth:latest
 }
