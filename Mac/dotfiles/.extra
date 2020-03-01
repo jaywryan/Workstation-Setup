@@ -26,3 +26,8 @@ export NO_PROXY=$no_proxy
 ###
 export AWS_CA_BUNDLE=/etc/ssl/certs/ca-bundle.trust.crt
 export AWS_PROFILE=cs-iad-1-engineering
+
+###
+### History Control
+###
+export HISTCONTROL=ignorespace
