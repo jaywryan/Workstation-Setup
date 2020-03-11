@@ -6,3 +6,4 @@ powershell
 slack
 spectacle
 visual-studio-code
+gimp
