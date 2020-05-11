@@ -5,27 +5,21 @@
 GIT_AUTHOR_NAME="Jay Ryan"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="jay.ryan@ge.com"
+GIT_AUTHOR_EMAIL="jaryan@redhat.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 ###
 ### PROXY Config
 ###
-# export http_proxy=PITC-Zscaler-Global-ZEN.proxy.corporate.ge.com:80
-export http_proxy=http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
-export no_proxy=*.geix.cloud.ge.com,ge.com,webmail.ge.com,*.xip.io,lattice.dev,*.dev,3.*,192.*,127.*,localhost,0.0.0.*,localhost,127.0.0.1,169.254.169.254,10.38.8.108,10.152.122.6,10.38.8.166,.cloud.ge.com,.scalr.corporate.ge.com,10.38.145.103,tanium01.ge.com,tanium02.ge.com,alpzs.tanium.ge.com,.tsg.ge.com,10.153.16.31,10.153.16.8,10.153.16.22
-export HTTP_PROXY=$http_proxy
-export https_proxy=$http_proxy
-export HTTPS_PROXY=$http_proxy
-export ALL_PROXY=$http_proxy
-export NO_PROXY=$no_proxy
-
-###
-### AWS Config
-###
-export AWS_CA_BUNDLE=/etc/ssl/certs/ca-bundle.trust.crt
-export AWS_PROFILE=cs-iad-1-engineering
+#export http_proxy=""
+#export http_proxy=""
+#export no_proxy=""
+#export HTTP_PROXY=$http_proxy
+#export https_proxy=$http_proxy
+#export HTTPS_PROXY=$http_proxy
+#export ALL_PROXY=$http_proxy
+#export NO_PROXY=$no_proxy
 
 ###
 ### History Control

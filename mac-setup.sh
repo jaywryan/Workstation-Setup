@@ -1,11 +1,10 @@
 
-xargs brew cask install < brew-cask.txt
+xargs brew cask install < Mac/brew-cask.txt
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig
 xargs brew install < brew.txt
 
-brew install python3
 # pip3 install powerline-status
 # Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-git config --global user.email "jay.ryan@ge.com"
+git config --global user.email "jayw.ryan@gmail.com"
 git config --global user.name "Jay Ryan"
