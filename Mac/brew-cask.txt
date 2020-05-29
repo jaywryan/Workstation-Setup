@@ -2,8 +2,8 @@ blue-jeans
 blue-jeans-browser-plugin
 zoomus
 ringcentral-meetings
-streamlabs-obs
-krisp
+obs
+obs-virtualcam
 google-chat
 iterm2
 java
@@ -16,4 +16,5 @@ docker
 tenor
 fedora-media-writer
 unetbootin
+krisp
 

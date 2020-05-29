@@ -13,3 +13,4 @@ tmux
 xz
 yubikey-personalization
 bash-completion
+virt-viewer
