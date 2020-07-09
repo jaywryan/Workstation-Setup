@@ -95,4 +95,4 @@
 	#fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 [user]
 	name = Jay Ryan
-	email = jay.ryan@ge.com
+	email = jayw.ryan@gmail.com

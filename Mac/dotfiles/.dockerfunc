@@ -33,17 +33,17 @@ ansible-playbook(){
 ansible(){
     docker run -it --rm -v $(PWD):/data ansible-test ansible
 }
-openstack-sh(){
-    docker run -it --rm \
-    -v $(PWD):/data \
-    -e http_proxy \
-    -e https_proxy \
-    -e no_proxy="*.geix.cloud.ge.com" \
-    -e NO_PROXY="*.geix.cloud.ge.com" \
-    -e HTTP_PROXY \
-    -e HTTPS_PROXY \
-    jaywryan/openstack-client
-}
-openshift-auth(){
-    docker run -it --rm openshift-auth:latest
-}
+# openstack-sh(){
+#     docker run -it --rm \
+#     -v $(PWD):/data \
+#     -e http_proxy \
+#     -e https_proxy \
+#     -e no_proxy="*.geix.cloud.ge.com" \
+#     -e NO_PROXY="*.geix.cloud.ge.com" \
+#     -e HTTP_PROXY \
+#     -e HTTPS_PROXY \
+#     jaywryan/openstack-client
+# }
+# openshift-auth(){
+#     docker run -it --rm openshift-auth:latest
+# }

@@ -14,3 +14,4 @@ xz
 yubikey-personalization
 bash-completion
 virt-viewer
+watch
