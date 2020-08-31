@@ -93,6 +93,10 @@
 # large on big repos.
 #[remote "origin"]
 	#fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
+
+[pull]
+	ff = only
+	
 [user]
 	name = Jay Ryan
 	email = jayw.ryan@gmail.com
