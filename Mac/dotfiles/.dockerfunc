@@ -24,15 +24,15 @@ docker-delete-stopped(){
 #         -e VAULT_SKIP_VERIFY \
 #         vault vault
 # }
-ansible-galaxy(){
-    docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-galaxy
-}
-ansible-playbook(){
-    docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-playbook
-}
-ansible(){
-    docker run -it --rm -v $(PWD):/data ansible-test ansible
-}
+# ansible-galaxy(){
+#     docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-galaxy
+# }
+# ansible-playbook(){
+#     docker run -it --rm -v $(PWD):/data microsoft/ansible ansible-playbook
+# }
+# ansible(){
+#     docker run -it --rm -v $(PWD):/data ansible-test ansible
+# }
 # openstack-sh(){
 #     docker run -it --rm \
 #     -v $(PWD):/data \
