@@ -98,8 +98,8 @@
 	ff = only
 
 [user]
-   name = Jay Ryan
-   email = jayw.ryan@gmail.com
+    name = Jay Ryan
+	email = jayw.ryan@gmail.com
  
 [includeIf "gitdir:~/code/redhat/"]
    path = .gitconfig_redhat
