@@ -1,8 +1,3 @@
-[includeIf "gitdir:~/code/"]
-    path = ~/.gitconfig_personal
-[includeIf "gitdir:~/redhat-code/"]
-    path = ~/.gitconfig_redhat
-
     [alias]
     # View abbreviated SHA, description, and history graph of the latest 20 commits
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -104,3 +99,8 @@
 
 [init]
 	defaultBranch = master
+[user]
+	name = Jay Ryan
+	email = jayw.ryan@gmail.com
+[includeIf "gitdir:~/redhat-code/"]
+    path = ~/.gitconfig_redhat
