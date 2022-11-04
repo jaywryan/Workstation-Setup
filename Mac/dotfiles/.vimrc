@@ -13,6 +13,9 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
+" Turn on Auto indent "
+set autoindent
+
 " Add numbers to each line on the left-hand side.
 set number
 
