@@ -1,3 +1,5 @@
 [user]
 	name = Jay Ryan
 	email = jayw.ryan@gmail.com
+[includeIf "gitdir:~/redhat-code/"]
+    path = ~/.gitconfig_redhat
