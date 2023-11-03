@@ -1,9 +1,6 @@
 blue-jeans
 blue-jeans-browser-plugin
 zoomus
-ringcentral-meetings
-obs
-obs-virtualcam
 google-chat
 iterm2
 java

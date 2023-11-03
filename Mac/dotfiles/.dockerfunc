@@ -1,18 +1,18 @@
 #!/bin/bash
 # Bash wrappers for docker run commands
 
-docker-pull-all(){
-    docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>" | sort | uniq | xargs -L1 docker pull
-}
-docker-delete-stopped(){
-	local name=$1
-	local state
-	state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
+# docker-pull-all(){
+#     docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>" | sort | uniq | xargs -L1 docker pull
+# }
+# docker-delete-stopped(){
+# 	local name=$1
+# 	local state
+# 	state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
 
-	if [[ "$state" == "false" ]]; then
-		docker rm "$name"
-	fi
-}
+# 	if [[ "$state" == "false" ]]; then
+# 		docker rm "$name"
+# 	fi
+# }
 # vault(){
 #     docker run -it --rm \
 #         -v $(PWD):/data \

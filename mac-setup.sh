@@ -1,8 +1,5 @@
 
-xargs brew cask install < Mac/brew-cask.txt
-sudo chown -R $(whoami) /usr/local/lib/pkgconfig
-brew tap jeffreywildman/homebrew-virt-manager
-xargs brew install < brew.txt
+xargs brew install < Mac/brew-both.txt
 
 # pip3 install powerline-status
 # Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}

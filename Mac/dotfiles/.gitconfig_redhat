@@ -1,6 +1,6 @@
 [user]
-  name = Jay Ryan
-  email = jaryan@redhat.com
+    name = Jay Ryan
+    email = jaryan@redhat.com
 
 [credential]
-  username = jaryan-rh
+    username = jaryan-rh
