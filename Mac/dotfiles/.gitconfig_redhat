@@ -1,6 +1,6 @@
 [user]
     name = Jay Ryan
     email = jaryan@redhat.com
-
+    signingkey = 0xB887B21F97BF2013
 [credential]
     username = jaryan-rh

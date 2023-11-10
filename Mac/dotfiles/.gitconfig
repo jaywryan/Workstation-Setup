@@ -57,7 +57,7 @@
     # Make `git rebase` safer on OS X
     # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
     trustctime = false
-    editor = code --wait
+    editor = codium --wait
 
 [color]
 
@@ -104,9 +104,10 @@
 
 [init]
 	defaultBranch = master
-[user]
-	name = Jay Ryan
-	email = jayw.ryan@gmail.com
-    signingkey = 652CFE1ECF1F11F8
-[includeIf "gitdir:~/redhat-code/"]
-    path = ~/.gitconfig_redhat
+
+# Use specific .gitconfig based on which root dir we are in.  (Verify with git config --includes --global user.email)
+[includeIf "gitdir:~/code/**"]
+  path = .gitconfig_personal
+
+[includeIf "gitdir:~/redhat-code/**"]
+  path = .gitconfig_redhat
