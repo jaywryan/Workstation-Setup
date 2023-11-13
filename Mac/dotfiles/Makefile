@@ -6,10 +6,18 @@ bin:
 
 .PHONY: dotfiles
 dotfiles:
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".gitattributes" -not -name ".gitmodules" -not -name ".git" -not -name ".travis.yml" -not -name ".*.swp"); do \
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".gitattributes" -not -name ".gitmodules" -not -name ".git" -not -name ".travis.yml" -not -name ".*.swp" -not -name ".gnupg"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done
+	ln -snf $(CURDIR)/.tmux/tmux.conf $(HOME)/.tmux.conf;
+	gpg --list-keys || true;
+	mkdir -p $(HOME)/.gnupg
+	for file in $(shell find $(CURDIR)/.gnupg/*); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/.gnupg/$$f; \
+	done; \
+	ln -snf $(CURDIR)/.bash_profile $(HOME)/.profile;
 
 .PHONY: etc
 etc:

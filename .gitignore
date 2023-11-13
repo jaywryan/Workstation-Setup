@@ -1,1 +1,6 @@
 .DS_Store
+Mac/dotfiles/.gnupg/*
+!Mac/dotfiles/.gnupg/common.conf
+!Mac/dotfiles/.gnupg/gpg*.conf
+
+

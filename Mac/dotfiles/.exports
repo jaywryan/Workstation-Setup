@@ -1,1 +1,5 @@
-# Custom Proxy env var
+# TTY setting for GPG passphrase prompt
+export GPG_TTY=$(tty)
+
+# Remove Bash warning on mac for zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
