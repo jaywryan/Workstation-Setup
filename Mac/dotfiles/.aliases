@@ -1,3 +1,5 @@
 # alias openstack-login='openstack-sh python data/geix_auth.py && . samlrc'
 # alias openstack='openstack-sh openstack'
 # alias aws-assume='gossamer -c /etc/gossamer/aws-roles-assume.yml'
+alias macos-update-force='sudo /bin/launchctl kickstart -k system/com.apple.softwareupdated'
+
