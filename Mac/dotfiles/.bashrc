@@ -88,3 +88,4 @@ shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+export LEAKTK_PATTERN_SERVER_URL='https://patterns.security.redhat.com'

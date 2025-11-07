@@ -104,6 +104,7 @@
 
 [init]
 	defaultBranch = master
+	templateDir = /Users/jaryan/.git-template
 
 # Use specific .gitconfig based on which root dir we are in.  (Verify with git config --includes --global user.email)
 [includeIf "gitdir:~/code/**"]
@@ -111,3 +112,8 @@
 
 [includeIf "gitdir:~/redhat-code/**"]
   path = .gitconfig_redhat
+
+# Pre commit for Red Hat
+[rh-pre-commit]
+	enableLocalConfig = false
+	checkSecrets = true
