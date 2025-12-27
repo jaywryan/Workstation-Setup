@@ -11,6 +11,7 @@ dotfiles:
 		ln -sfn $$file $(HOME)/$$f; \
 	done
 	ln -snf $(CURDIR)/.tmux/tmux.conf $(HOME)/.tmux.conf;
+	ln -snf $(CURDIR)/.ssh/config $(HOME)/.ssh/config;
 	gpg --list-keys || true;
 	mkdir -p $(HOME)/.gnupg
 	for file in $(shell find $(CURDIR)/.gnupg/*); do \
@@ -25,7 +26,7 @@ etc:
 		f=$$(echo $$file | sed -e 's|$(CURDIR)||'); \
 		sudo mkdir -p $$(dirname $$f); \
 		sudo ln -f $$file $$f; \
-	done	
+	done
 
 .PHONY: help
 help:

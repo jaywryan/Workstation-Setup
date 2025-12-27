@@ -2,14 +2,16 @@
 // Save as ~/.finicky.js
 
 export default {
-  defaultBrowser: "Google Chrome",
-  //profile: "Profile 1"
+  defaultBrowser: {
+    name: "Google Chrome",
+    profile: "Jay - Home",
+  },
   handlers: [
     {
-      match: /^https?:\/\/bark\.us\/.*$/,
+      match: "www.bark.us/*",
       browser: {
         name: "Google Chrome",
-        profile: "Profile 1",
+        profile: "Jay - Home",
       },
     },
     {
@@ -17,22 +19,26 @@ export default {
         ["Slack", "Microsoft Outlook"].includes(opener.name),
       browser: {
         name: "Google Chrome",
-        profile: "Default",
+        profile: "Jay - Work",
       },
     },
     {
-      match: /^https?:\/\/force\.com\/.*$/,
+      match: [
+        "*.salesforce.com/*",
+        /^https?:\/\/redhat\.com\/.*$/,
+      ],
       browser: {
         name: "Google Chrome",
-        profile: "Default",
+        profile: "Jay - Work",
       },
     },
-    {
-      match: /^https?:\/\/redhat\.com\/.*$/,
-      browser: {
-        name: "Google Chrome",
-        profile: "Default",
-      },
-    },
+    // {
+    //   match:
+    //   browser: {
+    //     name: "Google Chrome",
+    //     profile: "Jay - Work",
+    //   },
+    // },
   ],
 }
+

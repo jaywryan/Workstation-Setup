@@ -2,5 +2,6 @@
 Mac/dotfiles/.gnupg/*
 !Mac/dotfiles/.gnupg/common.conf
 !Mac/dotfiles/.gnupg/gpg*.conf
+Mac/dotfiles/.ssh/config.local
 
 
